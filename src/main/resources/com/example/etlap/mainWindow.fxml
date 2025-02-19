@@ -2,6 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
@@ -9,14 +12,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.etlap.MainController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" spacing="10.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.etlap.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="100.0" text="Menu" textAlignment="CENTER">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
       <HBox prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <TableView fx:id="menu" prefHeight="200.0" prefWidth="500.0">
+            <TableView fx:id="menu" prefHeight="500.0" prefWidth="500.0">
                <columns>
                   <TableColumn fx:id="name" maxWidth="1000.0" minWidth="30.0" prefWidth="100.0" text="Név" />
                   <TableColumn fx:id="category" maxWidth="1000.0" minWidth="30.0" prefWidth="100.0" text="Kategória" />
@@ -45,10 +53,17 @@
             </VBox>
          </children>
       </HBox>
-      <HBox>
+      <HBox spacing="5.0">
          <children>
             <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addBtnOnClick" text="Hozzáad" />
             <Button fx:id="deleteBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#deleteBtnOnClick" text="Törlés" />
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="480.0" spacing="5.0">
+               <children>
+                  <ChoiceBox fx:id="increaseTypeInput" onAction="#changeIncreaseType" prefWidth="40.0" />
+                  <Spinner fx:id="increaseAmountInput" editable="true" />
+                  <Button fx:id="increaceBtn" mnemonicParsing="false" onAction="#increaseBtnOnClick" text="Emelés" />
+               </children>
+            </HBox>
          </children>
       </HBox>
    </children>

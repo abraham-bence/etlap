@@ -54,4 +54,29 @@ public class MenuService {
 
         return statement.executeUpdate() == 1;
     }
+
+    public boolean increasePrice(Menu menuItem, int amount, String type) throws SQLException {
+        int newPrice = 0;
+        if(type == "Ft") {
+            newPrice = menuItem.getPrice() + amount;
+        }
+        else if(type == "%") {
+            double percent = (double) amount / 100;
+            double percentOfprice = percent * menuItem.getPrice();
+            newPrice = (int) (menuItem.getPrice() + percentOfprice);
+        }
+        String sql = "UPDATE etlap SET ar = ? WHERE id = ?;";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1,newPrice);
+        statement.setInt(2, menuItem.getId());
+
+        return statement.executeUpdate() == 1;
+    }
+
+    public void increasePrices(int amount, String type) throws SQLException {
+        List<Menu> menu = getAll();
+        for(Menu menuItem : menu) {
+            increasePrice(menuItem, amount, type);
+        }
+    }
 }
