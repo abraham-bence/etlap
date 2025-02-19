@@ -123,6 +123,7 @@ public class MainController {
                     alert.setHeaderText("Sikeres törlés!");
                     alert.showAndWait();
                     listMenu();
+                    menuItem = null;
                 } catch (SQLException e) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Hiba");
@@ -132,6 +133,10 @@ public class MainController {
                 }
             }
 
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Nincs kijelőlve elem!");
+            alert.showAndWait();
         }
     }
 

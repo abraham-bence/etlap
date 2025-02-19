@@ -17,7 +17,7 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="100.0" text="Menu" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="100.0" text="Étlap" textAlignment="CENTER">
          <font>
             <Font size="27.0" />
          </font>
